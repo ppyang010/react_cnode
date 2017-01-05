@@ -1,0 +1,64 @@
+/*nav*/
+.header{
+    width: 100%;
+    background-color: #444;
+    font-size: 13px;
+}
+.header .nav {
+    margin: 0 auto;
+    padding: 5px;
+    width: 90%;
+    min-width: 960px;
+    max-width: 1400px;
+
+}
+.nav .logo{
+    display: inline-block;
+    padding: 3px 20px;
+    width: 120px;
+    height: 28px;
+}
+.nav .logo img{
+    width: 100%;
+}
+
+.nav .search-warp{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.nav .search-warp .search{
+    margin-top: 8px;
+    padding-left: 26px;
+    width: 233px;
+    height: 26px;
+    border:0;
+    outline:none;
+    border-radius: 13px;
+    background: url('https://o4j806krb.qnssl.com/public/images/search.e53b380a.hashed.png')  no-repeat;
+    background-position: 4px 4px;
+    background-color: #666;
+}
+.nav .search-warp .search:focus{
+    background-color: #fff;
+}
+
+
+
+
+
+
+
+
+
+.clearfix::after{
+    display: block;
+    content: ".";
+    clear:both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+.clearfix{
+    zoom:1;
+}
