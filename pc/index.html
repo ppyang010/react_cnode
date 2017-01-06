@@ -7,23 +7,40 @@
     <title>CNode</title>
     <link rel="stylesheet" href="./src/css/reset.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="./src/css/commom.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./src/css/index.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
     <header class="header">
-        <nav class="nav ">
+        <nav class="navbar">
             <div class="container clearfix">
                 <a href="" class="logo"><img src="https://o4j806krb.qnssl.com/public/images/cnodejs_light.svg" alt=""></a>
                 <form class="search-warp" action="index.html" method="post" >
                     <input class="search" type="search">
                 </form>
-                <ul>
-                    <li></li>
+                <ul class="nav f-fr">
+                    <li class="nav-item"><a class="nav-item-a" href="javascript: void(0)">首页</a></li>
+                    <li class="nav-item"><a class="nav-item-a" href="javascript: void(0)">新手入门</a></li>
+                    <li class="nav-item"><a class="nav-item-a" href="javascript: void(0)">API</a></li>
+                    <li class="nav-item"><a class="nav-item-a" href="javascript: void(0)">关于</a></li>
+                    <li class="nav-item"><a class="nav-item-a" href="javascript: void(0)">注册</a></li>
+                    <li class="nav-item"><a class="nav-item-a" href="javascript: void(0)">登陆</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-    <main>
-
+    <main class="main clearfix">
+        <div class="sidebar f-fr"></div>
+        <div class="content">
+            <div class="m-topic-warp clearfix">
+                <nav class="m-navbar">
+                    <ul class="m-nav ">
+                        <li class="m-nav-item"><a href="">全部</a></li>
+                        <li class="m-nav-item"><a href="">精华</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="m-topic-content"></div>
+        </div>
     </main>
     <footer>
 
