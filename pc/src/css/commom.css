@@ -99,7 +99,9 @@ body{
 .sidebox-body .no-reply-list-item{
     margin-bottom: 10px;
     font-size: 14px;
+    color:#778087;
     line-height: 30px;
+    
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
