@@ -71,16 +71,43 @@ body{
 }
 .main .sidebar{
     width: 290px;
-    background-color: red;
 }
 
 .main .content{
     margin-right: 305px;
 }
 
-
 /*main end*/
 
+/*sidebar start*/
+.sidebox{
+    margin-bottom: 13px;
+    background-color: #fff;
+}
+.sidebox .sidebox-head{
+    padding: 10px;
+    font-size: 13px;
+    line-height: 20px;
+    background-color:#f6f6f6;
+}
+.sidebox .sidebox-head a.sidebox-link{
+    color: #666;
+}
+.sidebox .sidebox-body{
+    padding: 10px;
+}
+.sidebox-body .no-reply-list-item{
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.sidebox-body .no-reply-list-item a{
+    color:#778087;
+}
+/*sidebar end*/
 
 
 
@@ -97,6 +124,7 @@ body{
 .clearfix{
     zoom:1;
 }
+
 
 .f-fr{
     float: right;

@@ -4,6 +4,8 @@
 
 .m-topic-warp{
     padding: 10px;
+    height:40px;
+    box-sizing: border-box;
     background-color: #f6f6f6;
     border-radius: 3px 3px 0 0 ;
 }
@@ -32,8 +34,13 @@
 /*主题列表 start*/
 .list-item{
     padding: 10px;
+    height: 52px;
     border-top: 1px solid #f0f0f0;
+    box-sizing: border-box;
     background-color: #fff;
+}
+.list-item:hover{
+    background-color: #f6f6f6;
 }
 .topic-author{
     display: inline-block;
@@ -60,5 +67,47 @@
 .topic-count .count-of-visits{
     font-size: 10px;
     color: #b4b4b4;
+}
+.topic-title-warp{
+    display: inline-block;
+    vertical-align: top;
+    line-height: 30px;
+}
+.topic-title-warp .topic-type{
+    display: inline-block;
+    padding: 2px 4px;
+    margin-top: 6px;
+    color: #999;
+    line-height: 14px;
+    vertical-align: top;
+    font-size: 12px;
+    border-radius: 3px;
+    background-color: #e5e5e5;
+}
+.topic-title-warp .put-top{
+    color: #fff;
+    background-color: #80bd01;
+}
+.topic-title-warp .topic-title{
+    color: #000;
+}
+.topic-title-warp .topic-title:hover{
+    text-decoration: underline;
+}
+
+.item-rg a{
+    display: inline-block;
+    line-height: 28px;
+    color:#778087;
+}
+.item-rg .user-small-lg{
+    display: inline-block;
+    vertical-align: middle;
+    width: 18px;
+    height: 18px;
+}
+.item-rg .last-reply-time{
+    display: inline-block;
+    font-size: 12px;
 }
 /*主题列表 end*/
