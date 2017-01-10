@@ -1,6 +1,6 @@
 body{
     background-color: #e1e1e1;
-    height: 2000px;
+    font-family: "Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,sans-serif!important;
 }
 /*navbar start*/
 .header{
@@ -64,7 +64,7 @@ body{
 
 /*main start*/
 .main{
-    margin: 15px auto 0;
+    margin: 15px auto ;
     width: 90%;
     min-width: 960px;
     max-width: 1400px;
@@ -95,26 +95,89 @@ body{
 }
 .sidebox .sidebox-body{
     padding: 10px;
+    font-size: 13px;
 }
-.sidebox-body .no-reply-list-item{
+.sidebox-body .sidebox-content-list-item{
     margin-bottom: 10px;
     font-size: 14px;
     color:#778087;
     line-height: 30px;
-    
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.sidebox-body .no-reply-list-item a{
+.sidebox-body .sidebox-content-list-item .txt{
+    margin-right: 10px;
+}
+.sidebox-body .sidebox-content-list-item .link{
     color:#778087;
 }
+
+.sidebox-body .txt-p{
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 2em;
+}
+.sidebox-body .tolog{
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 2em;
+}
+.sidebox-body .tolog > p > a{
+    display: inline-block;
+    padding: 0 3px;
+    color: #778087;
+}
+
+
 /*sidebar end*/
 
 
 
-/*通用样式 start*/
+/*footer start*/
+#footer{
+    font-size: 13px;
+    background-color: #fff;
+}
+#footer .footer-wrap{
+    margin: 0 auto;
+    padding: 20px 0;
+    width: 90%;
+}
+#footer .footer-wrap .links{
+    margin: 0 0 10px 0;
+}
+#footer .footer-wrap .content{
+    color: #ababab;
+    font-size: 14px;
+    line-height: 20px;
+}
+#footer .footer-wrap .content p{
+    padding-bottom: 10px;
+}
+/*footer end*/
 
+/*backtotop start*/
+.backtotop{
+    position: fixed;
+    padding: 12px 0 12px 6px;
+    top:700px;
+    right: 0;
+    width: 24px;
+    z-index: 999;
+    border-radius: 12px 0 0 12px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: gray;
+}
+/*backtotop end*/
+
+
+/*通用样式 start*/
 .clearfix::after{
     display: block;
     content: ".";
@@ -130,5 +193,23 @@ body{
 
 .f-fr{
     float: right;
+}
+
+/*github log*/
+.btn-git{
+    display: inline-block;
+    padding: 3px 10px;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    line-height: 2em;
+    color: #fff;
+    background-color: #5bc0de;
+}
+.btn-git:hover{
+    color: #fff;
+    background-color: #2f96b4;
 }
 /*通用样式 end*/
