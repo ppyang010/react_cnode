@@ -1,0 +1,48 @@
+.art-head{
+    padding: 10px;
+
+}
+.art-head .art-title{
+    display: inline-block;
+    margin: 8px 0;
+    font-size: 22px;
+    line-height:1.3em;
+    font-weight: 700;
+}
+.art-head .topic-type{
+    margin: 0;
+    vertical-align: middle;
+}
+.art-head .art-info{
+    font-size: 12px;
+    line-height: 20px;
+    color: #838383;
+}
+.art-head .art-info span::before{
+    content: "•";
+}
+.art-head .art-info .art-author a{
+    color: #838383;
+}
+
+.art-body{
+    padding: 10px;
+}
+
+.art-body p{
+    font-size: 15px;
+    line-height: 1.7em;
+    overflow: auto;
+}
+.markdown-text p {
+    margin: 1em 0;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    line-height: 2em;
+}
+.markdown-text>p:first-child {
+    margin-top: 0;
+}

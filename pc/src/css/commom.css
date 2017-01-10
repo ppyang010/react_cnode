@@ -1,3 +1,5 @@
+html{
+}
 body{
     background-color: #e1e1e1;
     font-family: "Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,sans-serif!important;
@@ -77,6 +79,9 @@ body{
     margin-right: 305px;
 }
 
+.main .content >div{
+    background-color: #fff;
+}
 /*main end*/
 
 /*sidebar start*/
@@ -98,11 +103,9 @@ body{
     font-size: 13px;
 }
 .sidebox-body .sidebox-content-list-item{
-    margin-bottom: 10px;
-    font-size: 14px;
+    font-size: 13px;
     color:#778087;
     line-height: 30px;
-
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -144,6 +147,8 @@ body{
     margin: 0 auto;
     padding: 20px 0;
     width: 90%;
+    min-width: 960px;
+    max-width: 1400px;
 }
 #footer .footer-wrap .links{
     margin: 0 0 10px 0;
@@ -194,8 +199,14 @@ body{
 .f-fr{
     float: right;
 }
-
+.f-fz-14{
+    font-size: 14px;
+}
+strong{
+    font-weight: 700;
+}
 /*github log*/
+
 .btn-git{
     display: inline-block;
     padding: 3px 10px;
@@ -212,4 +223,28 @@ body{
     color: #fff;
     background-color: #2f96b4;
 }
+
+
+/*put*/
+.topic-type{
+    display: inline-block;
+    padding: 2px 4px;
+    margin-top: 6px;
+    color: #999;
+    line-height: 14px;
+    vertical-align: top;
+    font-size: 12px;
+    border-radius: 3px;
+    background-color: #e5e5e5;
+}
+.put-top{
+    color: #fff;
+    background-color: #80bd01;
+}
+
+/*line top*/
+.line-top{
+    border-top: 1px solid #e5e5e5;
+}
+
 /*通用样式 end*/
