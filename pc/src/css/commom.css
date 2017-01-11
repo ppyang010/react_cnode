@@ -89,10 +89,11 @@ body{
     margin-bottom: 13px;
     background-color: #fff;
 }
-.sidebox .sidebox-head{
+.sidebox .sidebox-head,.reply-wrap .reply-head{
     padding: 10px;
     font-size: 13px;
     line-height: 20px;
+    border-radius: 3px 3px 0 0;
     background-color:#f6f6f6;
 }
 .sidebox .sidebox-head a.sidebox-link{
@@ -133,6 +134,14 @@ body{
     color: #778087;
 }
 
+.sidebox-body .user-info{
+    margin-bottom: 10px;
+}
+
+.sidebox-body .user-info .user-name{
+    padding-left: 10px;
+    font-size: 16px
+}
 
 /*sidebar end*/
 
@@ -195,7 +204,9 @@ body{
     zoom:1;
 }
 
-
+.f-fl{
+    float: left;
+}
 .f-fr{
     float: right;
 }
@@ -205,6 +216,10 @@ body{
 strong{
     font-weight: 700;
 }
+.txt-i{
+    font-style: italic;
+}
+
 /*github log*/
 
 .btn-git{
@@ -245,6 +260,41 @@ strong{
 /*line top*/
 .line-top{
     border-top: 1px solid #e5e5e5;
+}
+/*link*/
+.link-b{
+    color: #08c;
+}
+.link-b:hover{
+    color: #005580;
+    text-decoration: underline;
+}
+.link-d{
+    color: #666;
+    text-decoration: none;
+}
+.link-d:hover{
+    color: #385f8a;
+}
+/*user logo*/
+.user-small-lg{
+    display: inline-block;
+    vertical-align: middle;
+    width: 18px;
+    height: 18px;
+}
+
+.user-middle-lg{
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+}
+.user-big-lg{
+    display: inline-block;
+    vertical-align: middle;
+    width: 48px;
+    height: 48px;
 }
 
 /*通用样式 end*/

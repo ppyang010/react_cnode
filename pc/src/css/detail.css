@@ -1,6 +1,9 @@
+/*文章*/
+.art-wrap{
+    border-radius: 3px;
+}
 .art-head{
     padding: 10px;
-
 }
 .art-head .art-title{
     display: inline-block;
@@ -45,4 +48,73 @@
 }
 .markdown-text>p:first-child {
     margin-top: 0;
+}
+
+
+/*回复*/
+.reply-wrap{
+    margin-top: 15px;
+}
+.reply-wrap .reply-head{
+    padding:10px;
+    font-size: 14px;
+}
+.reply-body .reply-list-item{
+    position: relative;
+    padding:10px;
+    font-size: 14px;
+}
+
+.reply-author-wrap a{
+    font-size: 12px;
+    vertical-align: top;
+}
+.reply-author-wrap .reply-name{
+    margin-left: 8px;
+    font-weight: 700;
+}
+.reply-author-wrap .reply-time{
+    margin-left: 4px;
+}
+
+.reply-content {
+    position: relative;
+    padding: 10px 0 0 30px;
+}
+.reply-content .markdown-text{
+    padding-left: 16px;
+}
+.reply-content .markdown-text>p{
+    font-size: 15px;
+    line-height: 1.7em;
+    overflow: auto;
+}
+.reply-content .markdown-text > p > a{
+    color: #08c
+}
+.reply-btn-wrap{
+    position: absolute;
+    right: 10px;
+}
+.reply-btn-wrap .icon-like{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    vertical-align: bottom;
+    background: url("../img/up.png") no-repeat;
+    background-size: 16px 16px;
+}
+.reply-btn-wrap .icon-reply{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    vertical-align: bottom;
+    background: url("../img/reply.png") no-repeat;
+    background-size: 16px 16px;
+}
+.reply-btn-wrap .like-count{
+    font-size: 15px;
+    color: gray;
 }
