@@ -3,16 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --hot --progress --colors",
+    "build": "webpack  --progress --colors",
+    "buildp": "webpack -p --progress --colors"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "react": "^15.4.1",
-    "react-dom": "^15.4.1",
-    "react-router": "^3.0.1"
+    "react-dom": "^15.4.1"
   },
   "devDependencies": {
+    "babel-loader": "^6.2.10",
     "gulp": "^3.9.1",
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.6.1",
@@ -20,6 +22,9 @@
     "gulp-react": "^3.1.0",
     "lodash": "^4.17.2",
     "react-dom": "^15.4.1",
-    "reactify": "^1.1.1"
+    "react-router": "^3.0.1",
+    "reactify": "^1.1.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
   }
 }
