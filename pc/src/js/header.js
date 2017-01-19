@@ -2,7 +2,7 @@ var React=require('react');
 
 class Header extends React.Component{
     render(){
-        return {
+        return (
             <header className="header">
                 <nav className="navbar">
                   <div className="container clearfix">
@@ -21,7 +21,7 @@ class Header extends React.Component{
                   </div>
                 </nav>
             </header>
-        }
+        )
     }
 }
 

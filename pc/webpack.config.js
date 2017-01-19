@@ -7,7 +7,14 @@ module.exports = {
   module: {
     loaders: [
       //.js 文件使用 babel-loader 来编译处理
-      { test: /\.js$/,    loader: "babel-loader" }
+      //{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
+    {   test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        query: {
+            presets: [ 'react']
+        }
+    }
     ]
   },
   resolve: {
