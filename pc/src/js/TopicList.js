@@ -14,6 +14,11 @@ class TopicList extends React.Component{
         });
     }
     render(){
+        fetch('https://cnodejs.org/api/v1/topics?page=1',{
+            method:"get",
+        }).then(function(res){
+            console.dir(res);
+        });
         var topicItems=[];
         for(var i=0;i<3;i++){
             topicItems.push(<TopicItem key={i} />);
