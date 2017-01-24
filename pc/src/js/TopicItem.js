@@ -1,6 +1,13 @@
 var React=require('react');
 
 class TopicItem extends React.Component{
+
+    imgErrorHandle(e){
+        console.log("img error")
+        console.dir(e);
+        console.dir(this);
+        this.refs['topicAuthorImg'].src="https://avatars.githubusercontent.com/u/8315732?v=3&s=120";
+    }
     render(){
         return(
             <li className="list-item line-top">
@@ -9,15 +16,15 @@ class TopicItem extends React.Component{
                   <span className="last-reply-time">30分钟前</span></a>
               </div>
               <div className="item-warp ">
-                <a href><img className="topic-author" src="https://avatars.githubusercontent.com/u/4279697?v=3&s=120" alt="alt" title="title" /></a>
+                <a href><img className="topic-author" ref="topicAuthorImg" src={this.props.topicAuthorImg} alt="alt" onError={this.imgErrorHandle} title="title" /></a>
                 <div className="topic-count clearfix">
-                  <span className="count-of-replies">187</span>
+                  <span className="count-of-replies">{this.props.replyCount}</span>
                   <span className="count-seperator">/</span>
-                  <span className="count-of-visits">44292</span>
+                  <span className="count-of-visits">{this.props.visitCount}</span>
                 </div>
                 <div className="topic-title-warp">
                   <span className="topic-type put-top">置顶</span>
-                  <a className="topic-title" href title="《一起学 Node.js》彻底重写完毕">《一起学 Node.js》彻底重写完毕</a>
+                  <a className="topic-title" href title={this.props.title} >{this.props.title}</a>
                 </div>
               </div>
             </li>
