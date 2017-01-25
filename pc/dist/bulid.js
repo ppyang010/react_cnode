@@ -21859,7 +21859,7 @@
 	            var topicItems = [];
 	            for (var i = 0, len = dataList.length; i < len; i++) {
 	                topicItems.push(React.createElement(TopicItem, { key: i, title: dataList[i].title, visitCount: dataList[i].visit_count, replyCount: dataList[i].reply_count,
-	                    topicAuthorImg: dataList[i].author.avatar_url }));
+	                    topicAuthorImg: dataList[i].author.avatar_url, top: dataList[i].top, tab: dataList[i].tab }));
 	            }
 	            return React.createElement(
 	                'div',
@@ -21895,89 +21895,105 @@
 	var React = __webpack_require__(1);
 
 	var TopicItem = function (_React$Component) {
-	  _inherits(TopicItem, _React$Component);
+	    _inherits(TopicItem, _React$Component);
 
-	  function TopicItem() {
-	    _classCallCheck(this, TopicItem);
+	    function TopicItem() {
+	        _classCallCheck(this, TopicItem);
 
-	    return _possibleConstructorReturn(this, (TopicItem.__proto__ || Object.getPrototypeOf(TopicItem)).apply(this, arguments));
-	  }
-
-	  _createClass(TopicItem, [{
-	    key: 'imgErrorHandle',
-	    value: function imgErrorHandle(e) {
-	      console.log("img error");
-	      console.dir(e);
-	      console.dir(this);
-	      this.refs['topicAuthorImg'].src = "https://avatars.githubusercontent.com/u/8315732?v=3&s=120";
+	        return _possibleConstructorReturn(this, (TopicItem.__proto__ || Object.getPrototypeOf(TopicItem)).apply(this, arguments));
 	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return React.createElement(
-	        'li',
-	        { className: 'list-item line-top' },
-	        React.createElement(
-	          'div',
-	          { className: 'item-rg f-fr' },
-	          React.createElement(
-	            'a',
-	            { href: true },
-	            React.createElement('img', { className: 'user-small-lg', src: 'https://avatars.githubusercontent.com/u/8315732?v=3&s=120', alt: true }),
-	            React.createElement(
-	              'span',
-	              { className: 'last-reply-time' },
-	              '30\u5206\u949F\u524D'
-	            )
-	          )
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'item-warp ' },
-	          React.createElement(
-	            'a',
-	            { href: true },
-	            React.createElement('img', { className: 'topic-author', ref: 'topicAuthorImg', src: this.props.topicAuthorImg, alt: 'alt', onError: this.imgErrorHandle, title: 'title' })
-	          ),
-	          React.createElement(
-	            'div',
-	            { className: 'topic-count clearfix' },
-	            React.createElement(
-	              'span',
-	              { className: 'count-of-replies' },
-	              this.props.replyCount
-	            ),
-	            React.createElement(
-	              'span',
-	              { className: 'count-seperator' },
-	              '/'
-	            ),
-	            React.createElement(
-	              'span',
-	              { className: 'count-of-visits' },
-	              this.props.visitCount
-	            )
-	          ),
-	          React.createElement(
-	            'div',
-	            { className: 'topic-title-warp' },
-	            React.createElement(
-	              'span',
-	              { className: 'topic-type put-top' },
-	              '\u7F6E\u9876'
-	            ),
-	            React.createElement(
-	              'a',
-	              { className: 'topic-title', href: true, title: this.props.title },
-	              this.props.title
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
 
-	  return TopicItem;
+	    _createClass(TopicItem, [{
+	        key: 'imgErrorHandle',
+	        value: function imgErrorHandle() {
+	            console.dir(this);
+	            this.refs['topicAuthorImg'].src = "https://avatars.githubusercontent.com/u/8315732?v=3&s=120";
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var style = "topic-type",
+	                tab;
+	            var props = this.props;
+	            switch (props.tab) {
+	                case "share":
+	                    tab = "分享";break;
+	                case "job":
+	                    tab = "招聘";break;
+	                case "ask":
+	                    tab = "问答";break;
+	                default:
+	                    tab = "未知";
+	            }
+	            if (props.top) {
+	                style = "topic-type put-top";
+	                tab = "置顶";
+	            }
+
+	            return React.createElement(
+	                'li',
+	                { className: 'list-item line-top' },
+	                React.createElement(
+	                    'div',
+	                    { className: 'item-rg f-fr' },
+	                    React.createElement(
+	                        'a',
+	                        { href: true },
+	                        React.createElement('img', { className: 'user-small-lg', src: 'https://avatars.githubusercontent.com/u/14039380?v=3&s=120', alt: true }),
+	                        React.createElement(
+	                            'span',
+	                            { className: 'last-reply-time' },
+	                            '30\u5206\u949F\u524D'
+	                        )
+	                    )
+	                ),
+	                React.createElement(
+	                    'div',
+	                    { className: 'item-warp ' },
+	                    React.createElement(
+	                        'a',
+	                        { href: true },
+	                        React.createElement('img', { className: 'topic-author', ref: 'topicAuthorImg', src: this.props.topicAuthorImg, alt: 'alt', onError: this.imgErrorHandle.bind(this), title: 'title' })
+	                    ),
+	                    React.createElement(
+	                        'div',
+	                        { className: 'topic-count clearfix' },
+	                        React.createElement(
+	                            'span',
+	                            { className: 'count-of-replies' },
+	                            this.props.replyCount
+	                        ),
+	                        React.createElement(
+	                            'span',
+	                            { className: 'count-seperator' },
+	                            '/'
+	                        ),
+	                        React.createElement(
+	                            'span',
+	                            { className: 'count-of-visits' },
+	                            this.props.visitCount
+	                        )
+	                    ),
+	                    React.createElement(
+	                        'div',
+	                        { className: "topic-title-warp" },
+	                        React.createElement(
+	                            'span',
+	                            { className: style },
+	                            tab
+	                        ),
+	                        React.createElement(
+	                            'a',
+	                            { className: 'topic-title', href: true, title: this.props.title },
+	                            this.props.title
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TopicItem;
 	}(React.Component);
 
 	module.exports = TopicItem;

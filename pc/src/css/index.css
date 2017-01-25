@@ -73,7 +73,7 @@
     vertical-align: top;
     line-height: 30px;
 
-    min-width: 580px;
+    max-width: 580px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
