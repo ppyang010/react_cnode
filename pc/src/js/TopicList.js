@@ -68,7 +68,7 @@ class TopicList extends React.Component{
         }
         var topicItems=[];
         for(var i=0,len=dataList.length;i<len;i++){
-            topicItems.push(<TopicItem key={i} title={dataList[i].title} visitCount={dataList[i].visit_count} replyCount={dataList[i].reply_count}
+            topicItems.push(<TopicItem key={i} title={dataList[i].title} topicID={dataList[i].id} visitCount={dataList[i].visit_count} replyCount={dataList[i].reply_count}
                 topicAuthorImg={dataList[i].author.avatar_url} top={dataList[i].top} tab={dataList[i].tab} />);
         }
         return (

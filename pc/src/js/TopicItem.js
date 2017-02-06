@@ -43,7 +43,8 @@ class TopicItem extends React.Component{
                 <div className={"topic-title-warp"}>
                   <span className={style} >{tab}</span>
                  { /*<a className="topic-title" href title={this.props.title} >{this.props.title}</a>*/}
-                  <Link to={'/topic'+'/123'}  className="topic-title" title={this.props.title} > {this.props.title}</Link>
+                <Link to={'/topic/'+props.topicID}  className="topic-title" title={this.props.title} > {this.props.title}</Link>
+                 { /* <Link to={{pathname:'/topic',query:{name:'test'}}}  className="topic-title" title={this.props.title} > {this.props.title}</Link>*/}
                 </div>
               </div>
             </li>
