@@ -5,7 +5,8 @@
   "scripts": {
     "start": "webpack-dev-server --hot --progress --colors",
     "build": "webpack  --progress --colors",
-    "buildp": "webpack -p --progress --colors"
+    "buildp": "webpack -p --progress --colors",
+    "dev": "webpack-dev-server"
   },
   "author": "",
   "license": "MIT",
@@ -22,6 +23,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.0.0",
     "gulp-react": "^3.1.0",
+    "gulp-webpack": "^1.5.0",
     "isomorphic-fetch": "^2.2.1",
     "json-loader": "^0.5.4",
     "lodash": "^4.17.2",
