@@ -1,6 +1,7 @@
 var React=require('react');
 var TopicList=require('./TopicList.js');
 
+import {Sidebox} from './side/Sidebox.js';
 class Body extends React.Component{
     render(){
         return(
@@ -15,6 +16,7 @@ class Body extends React.Component{
                   </div>
                 </div>
               </div>
+              <Sidebox/>
             </div>
 
 
@@ -29,7 +31,8 @@ class Body extends React.Component{
             </div>
             <TopicList/>
         </div>
-      </main>)
+      </main>
+  )
     }
 }
 

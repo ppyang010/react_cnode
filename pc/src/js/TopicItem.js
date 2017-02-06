@@ -1,4 +1,5 @@
 var React=require('react');
+import {Link} from 'react-router';
 
 class TopicItem extends React.Component{
 
@@ -41,7 +42,8 @@ class TopicItem extends React.Component{
                 </div>
                 <div className={"topic-title-warp"}>
                   <span className={style} >{tab}</span>
-                  <a className="topic-title" href title={this.props.title} >{this.props.title}</a>
+                 { /*<a className="topic-title" href title={this.props.title} >{this.props.title}</a>*/}
+                  <Link to={'/topic'+'/123'}  className="topic-title" title={this.props.title} > {this.props.title}</Link>
                 </div>
               </div>
             </li>
