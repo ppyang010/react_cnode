@@ -100,8 +100,10 @@ body{
     color: #666;
 }
 .sidebox .sidebox-body{
-    padding: 10px;
     font-size: 13px;
+}
+.sidebox .sidebox-body .sidebox-body-wrap{
+    padding: 10px;
 }
 .sidebox-body .sidebox-content-list-item{
     font-size: 13px;

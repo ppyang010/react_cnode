@@ -1,3 +1,7 @@
+/**
+ * 详情页
+ * @type {[type]}
+ */
 var React=require('react');
 var Header=require('../Header.js');
 var Footer=require('../Footer.js');

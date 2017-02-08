@@ -9,14 +9,16 @@ class Body extends React.Component{
             <div className="sidebar f-fr">
               <div className="sidebox">
                 <div className="sidebox-body">
-                  <p className="txt-p">CNode：Node.js专业中文社区</p>
-                  <div className="tolog">
-                    <p>您可以<a href>登录</a>或<a href>注册</a>,也可以</p>
-                    <a className="btn-git" href="javascript:void(0);">通过 GitHub 登陆</a>
-                  </div>
+                    <div className="sidebox-body-wrap">
+                      <p className="txt-p">CNode：Node.js专业中文社区</p>
+                      <div className="tolog">
+                        <p>您可以<a href>登录</a>或<a href>注册</a>,也可以</p>
+                        <a className="btn-git" href="javascript:void(0);">通过 GitHub 登陆</a>
+                      </div>
+                    </div>
                 </div>
               </div>
-              <Sidebox/>
+
             </div>
 
 

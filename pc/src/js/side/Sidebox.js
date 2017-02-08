@@ -1,14 +1,26 @@
+/**
+ * 复用面板box
+ * @type {[type]}
+ */
 var React=require('react');
 import {AuthorBox} from './AuthorBox.js'
 class Sidebox extends React.Component{
     render(){
-        let props=this.props;
-
+        let props=this.props,
+        type=props.type,
+        bodyBox;
+        switch (type){
+            case 'author':
+            let loginname=props.loginname;
+            bodyBox=<AuthorBox loginname={loginname} />;break;
+            default:
+            break;
+        }
         return (
             <div className="sidebox">
                 <div className="sidebox-head"><span>{props.title}</span></div>
                 <div className="sidebox-body">
-                    <AuthorBox/>
+                    {bodyBox}
                 </div>
             </div>
 

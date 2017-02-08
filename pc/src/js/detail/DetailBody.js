@@ -8,7 +8,7 @@ class DetailBody extends  React.Component{
         return (
             <main className="main clearfix">
                 <div className="sidebar f-fr">
-                  <Sidebox title="作者" />
+                  <Sidebox title="作者" type="author" loginname={data.author.loginname}/>
 
                   <div className="sidebox">
                     <div className="sidebox-head"><span>积分榜</span> &nbsp;<a className="sidebox-link" href>TOP 100 &gt;&gt;</a></div>

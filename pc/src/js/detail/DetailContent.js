@@ -1,5 +1,5 @@
 var React=require('react');
-
+var fetch=require('isomorphic-fetch');
 class DetailContent extends React.Component{
     constructor(props) {
         super(props);
