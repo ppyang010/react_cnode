@@ -4,11 +4,12 @@
  */
 var React=require('react');
 var fetch=require('isomorphic-fetch');
+import {Link} from 'react-router';
+
 class AuthorBox extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            loginname:"test",
         }
     }
 
@@ -16,23 +17,28 @@ class AuthorBox extends React.Component{
 
     }
     componentDidMount(){
-        console.log("componentDidMount");
-        var result=this._fetchDate(this.props.loginname);
-        var self=this;
-        // console.log("result="+result);
-        result.then(function(res){
-            // console.dir(res);
-            if (res.ok) {
-                res.json().then(function(obj) {
-                    // 这样数据就转换成json格式的了
-                     console.dir(obj);
-                    if(obj.success){
-                        let data=obj.data;
-                        self._showHTML(self.refs['userinfo'],data);
-                    }
-                })
-            }
-        });
+        //数据请求放到父组件了
+        // console.log("componentDidMount");
+        // var result=this._fetchDate(this.props.loginname);
+        // var self=this;
+        // // console.log("result="+result);
+        // result.then(function(res){
+        //     // console.dir(res);
+        //     if (res.ok) {
+        //         res.json().then(function(obj) {
+        //             // 这样数据就转换成json格式的了
+        //             //  console.dir(obj);
+        //             if(obj.success){
+        //                 let data=obj.data;
+        //                 self.setState({
+        //                     avatarUrl:data.avatar_url,
+        //                     loginname:data.loginname,
+        //                     score:data.score
+        //                 })
+        //             }
+        //         })
+        //     }
+        // });
     }
     _showHTML(dom,data){
         //注意要是html语法不是jsx语法
@@ -51,11 +57,27 @@ class AuthorBox extends React.Component{
 
     }
     render(){
+        let props=this.props,
+        data=props.authorBoxData,
+        userInfo;
+        if(!!data.loginname){
+            userInfo=(
+                    <div className="user-info">
+                      <img className="user-big-lg" src={data.avatar_url} alt="图片" />
+                      <Link className="user-name link-d" to={'/user/'+data.loginname}>{data.loginname}</Link>
+                      <p className="txt-p">积分：{data.score}</p>
+                    </div>
+            );
+        }
         return (
             <div ref="userinfo" className="sidebox-body-wrap">
+                {userInfo}
             </div>
         );
     }
+}
+AuthorBox.defaultProps={
+    name:'111'
 }
 export {AuthorBox};
 export default AuthorBox;

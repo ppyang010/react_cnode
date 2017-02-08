@@ -6,6 +6,7 @@ var React=require('react');
 var Header=require('../Header.js');
 var Footer=require('../Footer.js');
 
+import {UserBody} from './UserBody.js';
 
 
 class UserApp extends React.Component{
@@ -30,6 +31,7 @@ class UserApp extends React.Component{
         return (
             <div>
                 <Header/>
+                <UserBody loginname={this.props.params.loginname}/>
                 <Footer/>
             </div>
         )

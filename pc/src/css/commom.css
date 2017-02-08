@@ -354,6 +354,7 @@ strong{
 }
 .user-big-lg{
     display: inline-block;
+    border-radius: 4px;
     vertical-align: middle;
     width: 48px;
     height: 48px;

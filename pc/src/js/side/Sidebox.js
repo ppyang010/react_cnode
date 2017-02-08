@@ -12,7 +12,7 @@ class Sidebox extends React.Component{
         switch (type){
             case 'author':
             let loginname=props.loginname;
-            bodyBox=<AuthorBox loginname={loginname} />;break;
+            bodyBox=<AuthorBox authorBoxData={props.authorBoxData} />;break;
             default:
             break;
         }
