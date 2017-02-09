@@ -8,6 +8,7 @@
  */
 var React=require('react');
 import {AuthorBox} from './AuthorBox.js';
+import {LoginFormBox} from './LoginFormBox.js';
 // import {TopicList} from '../TopicList.js';
 var TopicList=require('../TopicList.js');
 class Sidebox extends React.Component{
@@ -21,6 +22,8 @@ class Sidebox extends React.Component{
             bodyBox=<AuthorBox authorBoxData={props.authorBoxData} />;break;
             case 'list':
             bodyBox=<TopicList dataList={props.boxData} />;break;
+            case 'login':
+            bodyBox=<LoginFormBox/>;break;
             default:
             break;
         }

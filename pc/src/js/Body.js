@@ -5,12 +5,13 @@ import {Sidebox} from './side/Sidebox.js';
 class Body extends React.Component{
     constructor(props) {
         super(props);
+        console.log("constructor");
         this.state = {
             test:"ccytest"
         }
     }
     componentWillMount(){
-
+        console.log("componentWillMount");
     }
     componentDidMount(){
         console.log("componentDidMount");
