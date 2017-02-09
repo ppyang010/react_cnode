@@ -1,9 +1,15 @@
 /**
  * 复用面板box
+ * 参数：
+ * title:标题
+ * type：类型
+ * boxData：不同body对应的数据
  * @type {[type]}
  */
 var React=require('react');
-import {AuthorBox} from './AuthorBox.js'
+import {AuthorBox} from './AuthorBox.js';
+// import {TopicList} from '../TopicList.js';
+var TopicList=require('../TopicList.js');
 class Sidebox extends React.Component{
     render(){
         let props=this.props,
@@ -13,6 +19,8 @@ class Sidebox extends React.Component{
             case 'author':
             let loginname=props.loginname;
             bodyBox=<AuthorBox authorBoxData={props.authorBoxData} />;break;
+            case 'list':
+            bodyBox=<TopicList dataList={props.boxData} />;break;
             default:
             break;
         }

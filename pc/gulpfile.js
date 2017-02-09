@@ -44,7 +44,8 @@ gulp.task('html',function(){
 
 // watch 监听文件变化
 gulp.task('watch',function(){
-	gulp.watch('./src/**/*.js',['browserify']);
+	// gulp.watch('./src/**/*.js',['browserify']);
+	gulp.watch('./src/**/*.js',['webpack']);
     gulp.watch('./dist/**/*.js',['js']);
     gulp.watch('./*.html',['html']);
 });

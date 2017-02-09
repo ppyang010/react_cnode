@@ -44,9 +44,11 @@ class UserBody extends React.Component{
     render(){
         let props=this.props,
         state=this.state,
-        authorBox;
+        authorBox,recentReplyBox,recentTopicBox;
         if(state.authorBoxData){
             authorBox=<Sidebox title="作者" type="author" authorBoxData={state.authorBoxData} />;
+            recentReplyBox=<Sidebox title="最近参与的话题" type="list" boxData={state.authorBoxData.recent_replies} />;
+            recentTopicBox=<Sidebox title="最近创建的话题" type="list" boxData={state.authorBoxData.recent_topics} />;
         }
 
         return(
@@ -57,52 +59,9 @@ class UserBody extends React.Component{
 
                 <div className="content clearfix">
                   {authorBox}
+                  {recentTopicBox}
+                  {recentReplyBox}
 
-                  <div className="sidebox">
-                    <div className="sidebox-head"><span>作者</span></div>
-                    <div className="sidebox-body">
-                      <div className="m-topic-content">
-                        <ul className="topic-list">
-                          <li className="list-item line-top">
-                            <div className="item-rg f-fr">
-                              <a href><img className="user-small-lg" src="https://avatars.githubusercontent.com/u/8315732?v=3&s=120" alt />
-                                <span className="last-reply-time">30分钟前</span></a>
-                            </div>
-                            <div className="item-warp ">
-                              <a href><img className="topic-author" src="https://avatars.githubusercontent.com/u/4279697?v=3&s=120" alt="alt" title="title" /></a>
-                              <div className="topic-count clearfix">
-                                <span className="count-of-replies">187</span>
-                                <span className="count-seperator">/</span>
-                                <span className="count-of-visits">44292</span>
-                              </div>
-                              <div className="topic-title-warp">
-                                <span className="topic-type put-top">置顶</span>
-                                <a className="topic-title" href title="《一起学 Node.js》彻底重写完毕">《一起学 Node.js》彻底重写完毕</a>
-                              </div>
-                            </div>
-                          </li>
-                          <li className="list-item line-top">
-                            <div className="item-rg f-fr">
-                              <a href><img className="user-small-lg" src="https://avatars.githubusercontent.com/u/8315732?v=3&s=120" alt />
-                                <span className="last-reply-time">30分钟前</span></a>
-                            </div>
-                            <div className="item-warp clearfix">
-                              <a href><img className="topic-author" src="https://avatars.githubusercontent.com/u/4279697?v=3&s=120" alt="alt" title="title" /></a>
-                              <div className="topic-count">
-                                <span className="count-of-replies">187</span>
-                                <span className="count-seperator">/</span>
-                                <span className="count-of-visits">44292</span>
-                              </div>
-                              <div className="topic-title-warp">
-                                <span className="topic-type ">问答</span>
-                                <a className="topic-title" href title="《一起学 Node.js》彻底重写完毕">《一起学 Node.js》彻底重写完毕</a>
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </main>
 

@@ -3,7 +3,49 @@ var TopicList=require('./TopicList.js');
 
 import {Sidebox} from './side/Sidebox.js';
 class Body extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            test:"ccytest"
+        }
+    }
+    componentWillMount(){
+
+    }
+    componentDidMount(){
+        console.log("componentDidMount");
+        var result=this._fetchDate();
+        var self=this;
+        // console.log("result="+result);
+        result.then(function(res){
+            // console.dir(res);
+            if (res.ok) {
+                res.json().then(function(obj) {
+                    // 这样数据就转换成json格式的了
+                    // console.dir(obj);
+                    if(obj.success){
+                        self.setState({
+                            dataList:obj.data
+                        })
+                    }
+                })
+            }
+        });
+    }
+    _fetchDate(){
+        return fetch('https://cnodejs.org/api/v1/topics?page=1',{
+            method:"get",
+        })
+
+    }
     render(){
+        var dataList=[];
+        if(!!this.state.dataList){
+            console.dir(this.state.dataList);
+            dataList=this.state.dataList;
+        }else{
+            console.log(null);
+        }
         return(
         <main className="main clearfix">
             <div className="sidebar f-fr">
@@ -31,7 +73,7 @@ class Body extends React.Component{
                   </ul>
                 </nav>
             </div>
-            <TopicList/>
+            <TopicList dataList={dataList}/>
         </div>
       </main>
   )

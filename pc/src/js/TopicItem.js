@@ -18,12 +18,27 @@ class TopicItem extends React.Component{
             case "ask":
             tab="问答";break;
             default:
-            tab="未知";
+            tab=null;
         }
-        if(props.top){
-            style="topic-type put-top";
-            tab="置顶";
+        var topicCountWrap,
+        tabCom;
+        if(this.props.replyCount){
+            topicCountWrap=(
+                <div className="topic-count clearfix">
+                  <span className="count-of-replies">{this.props.replyCount}</span>
+                  <span className="count-seperator">/</span>
+                  <span className="count-of-visits">{this.props.visitCount}</span>
+                </div>
+            )
         }
+        if(tab){
+            tabCom=( <span className={style} >{tab}</span>);
+            if(props.top){
+                style="topic-type put-top";
+                tab="置顶";
+            }
+        }
+
 
 
 
@@ -35,13 +50,9 @@ class TopicItem extends React.Component{
               </div>
               <div className="item-warp ">
                 <a href><img className="topic-author" ref="topicAuthorImg" src={this.props.topicAuthorImg} alt="alt" onError={this.imgErrorHandle.bind(this)} title="title" /></a>
-                <div className="topic-count clearfix">
-                  <span className="count-of-replies">{this.props.replyCount}</span>
-                  <span className="count-seperator">/</span>
-                  <span className="count-of-visits">{this.props.visitCount}</span>
-                </div>
+                {topicCountWrap}
                 <div className={"topic-title-warp"}>
-                  <span className={style} >{tab}</span>
+                  {tabCom}
                  { /*<a className="topic-title" href title={this.props.title} >{this.props.title}</a>*/}
                 <Link to={'/topic/'+props.topicID}  className="topic-title" title={this.props.title} > {this.props.title}</Link>
                  { /* <Link to={{pathname:'/topic',query:{name:'test'}}}  className="topic-title" title={this.props.title} > {this.props.title}</Link>*/}

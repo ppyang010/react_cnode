@@ -1,10 +1,13 @@
+/**
+ * 文章列表
+ * 参数：dataList:文章列表
+ * @type {[type]}
+ */
 var React=require('react');
 var TopicItem =require('./TopicItem.js');
 var fetch=require('isomorphic-fetch');
 class TopicList extends React.Component{
-    // static state : {
-    //     test:"ccytest"
-    // }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -12,30 +15,27 @@ class TopicList extends React.Component{
         }
     }
     componentWillMount(){
-        console.log("componmentWillMount");
-        var result=this._fetchDate();
-        var self=this;
-        console.log("result="+result);
+
     }
     componentDidMount(){
-        console.log("componentDidMount");
-        var result=this._fetchDate();
-        var self=this;
-        // console.log("result="+result);
-        result.then(function(res){
-            // console.dir(res);
-            if (res.ok) {
-                res.json().then(function(obj) {
-                    // 这样数据就转换成json格式的了
-                    // console.dir(obj);
-                    if(obj.success){
-                        self.setState({
-                            dataList:obj.data
-                        })
-                    }
-                })
-            }
-        });
+        //数据请求移到上层
+        // var result=this._fetchDate();
+        // var self=this;
+        // // console.log("result="+result);
+        // result.then(function(res){
+        //     // console.dir(res);
+        //     if (res.ok) {
+        //         res.json().then(function(obj) {
+        //             // 这样数据就转换成json格式的了
+        //             // console.dir(obj);
+        //             if(obj.success){
+        //                 self.setState({
+        //                     dataList:obj.data
+        //                 })
+        //             }
+        //         })
+        //     }
+        // });
     }
     _fetchDate(){
         return fetch('https://cnodejs.org/api/v1/topics?page=1',{
@@ -60,9 +60,9 @@ class TopicList extends React.Component{
     render(){
         console.log('render');
         var dataList=[]
-        if(!!this.state.dataList){
-            console.dir(this.state.dataList);
-            dataList=this.state.dataList;
+        if(!!this.props.dataList){
+            console.dir(this.props.dataList);
+            dataList=this.props.dataList;
         }else{
             console.log(null);
         }
@@ -80,5 +80,5 @@ class TopicList extends React.Component{
         )
     }
 }
-
+export {TopicList};
 module.exports=TopicList;

@@ -1,5 +1,5 @@
 var React=require('react');
-import {IndexLink} from 'react-router';
+import {IndexLink,Link} from 'react-router';
 class Header extends React.Component{
     render(){
         return (
@@ -16,7 +16,7 @@ class Header extends React.Component{
                       <li className="nav-item"><a className="nav-item-a" href="javascript: void(0)">API</a></li>
                       <li className="nav-item"><a className="nav-item-a" href="javascript: void(0)">关于</a></li>
                       <li className="nav-item"><a className="nav-item-a" href="javascript: void(0)">注册</a></li>
-                      <li className="nav-item"><a className="nav-item-a" href="javascript: void(0)">登陆</a></li>
+                      <li className="nav-item"><Link className="nav-item-a" to="/login" >登陆</Link></li>
                     </ul>
                   </div>
                 </nav>
