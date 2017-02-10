@@ -1,7 +1,38 @@
 var React=require('react');
 import {IndexLink,Link} from 'react-router';
+import {CookieUtil} from './util/CookieUtil.js';
 class Header extends React.Component{
+    constructor(props){
+        super(props);
+        var cookie=CookieUtil.getCookies();
+        var loginUserInfo={
+            loginUserState:false,
+        }
+        if(cookie['loginname']){
+            loginUserInfo={
+                //用户登陆状态
+                loginUserState:true,
+                //登陆名
+                username:cookie['loginname'],
+                userToken:cookie['tokenID']
+            }
+        }
+        this.state={
+            loginUserInfo:loginUserInfo
+        }
+    }
     render(){
+        var loginUserInfo=this.state.loginUserInfo,
+        registLink,loginLink;
+
+        if(loginUserInfo.loginUserState){
+            registLink=( <li className="nav-item"><Link className="nav-item-a" to={'/user/'+loginUserInfo.username} >{loginUserInfo.username}</Link></li>)
+            loginLink=(<li className="nav-item"><a className="nav-item-a"  href="javascript: void(0)" >退出</a></li>);
+        }else{
+            registLink=( <li className="nav-item"><a className="nav-item-a" href="javascript: void(0)">注册</a></li>);
+            loginLink=(<li className="nav-item"><Link className="nav-item-a" to="/login" >登陆</Link></li>);
+        }
+
         return (
             <header className="header">
                 <nav className="navbar">
@@ -12,11 +43,10 @@ class Header extends React.Component{
                     </form>
                     <ul className="nav f-fr">
                       <li className="nav-item"><IndexLink className="nav-item-a"  to="/">首页</IndexLink></li>
-                      <li className="nav-item"><a className="nav-item-a" href="javascript: void(0)">新手入门</a></li>
-                      <li className="nav-item"><a className="nav-item-a" href="javascript: void(0)">API</a></li>
+                      <li className="nav-item"><a className="nav-item-a" href="https://cnodejs.org/api" target="_blank">API</a></li>
                       <li className="nav-item"><a className="nav-item-a" href="javascript: void(0)">关于</a></li>
-                      <li className="nav-item"><a className="nav-item-a" href="javascript: void(0)">注册</a></li>
-                      <li className="nav-item"><Link className="nav-item-a" to="/login" >登陆</Link></li>
+                      {registLink}
+                      {loginLink}
                     </ul>
                   </div>
                 </nav>

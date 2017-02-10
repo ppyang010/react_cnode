@@ -32,11 +32,11 @@ class TopicItem extends React.Component{
             )
         }
         if(tab){
-            tabCom=( <span className={style} >{tab}</span>);
             if(props.top){
                 style="topic-type put-top";
                 tab="置顶";
             }
+            tabCom=( <span className={style} >{tab}</span>);
         }
 
 
