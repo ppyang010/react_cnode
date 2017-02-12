@@ -1,12 +1,15 @@
 var React=require('react');
 import {Sidebox} from '../side/Sidebox.js';
 import {DetailContent} from './DetailContent.js';
+import {CookieUtil} from '../util/CookieUtil.js';
 var fetch=require('isomorphic-fetch');
 class DetailBody extends  React.Component{
     constructor(props){
         super(props);
         this.state={
+
         }
+
     }
 
     componentWillMount(){
@@ -37,17 +40,20 @@ class DetailBody extends  React.Component{
     _fetchDate(str){
         return fetch('https://cnodejs.org/api/v1/user/'+str,{
             method:"get",
-        })
-
+        });
     }
+    // handleCollect(e){
+    //     console.dir(this);
+    //     console.dir(e);
+    // }
     render(){
         let props=this.props,
         data=props.data,
         state=this.state,
         authorBox;
-        console.dir(state);
+        // console.dir(state);
         if(state.authorBoxData){
-            authorBox=<Sidebox title="作者" type="author" authorBoxData={state.authorBoxData}/>
+            authorBox=<Sidebox title="作者" type="author" authorBoxData={state.authorBoxData} />
         }
 
         return (
@@ -56,7 +62,8 @@ class DetailBody extends  React.Component{
                     {authorBox}
                 </div>
 
-                <DetailContent data={props.data}/>
+                <DetailContent data={props.data} collectBtn={props.collectBtn} is_collect={props.is_collect} handleCollect={props.handleCollect}
+                handleUnCollect={props.handleUnCollect} handleUps={props.handleUps}/>
             </main>
         )
     }

@@ -11,7 +11,7 @@ class IndexApp extends React.Component{
     render(){
         return (
             <div>
-                <Header />
+                <Header     />
                 <Body/>
                 <Footer/>
             </div>

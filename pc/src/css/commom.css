@@ -262,7 +262,7 @@ strong{
     color: #fff;
     background-color: #2f96b4;
 }
-.btn-primary{
+[class^=btn-]{
     display: inline-block;
     padding: 3px 10px;
     transition: all .2s ease-in-out;
@@ -273,11 +273,27 @@ strong{
     letter-spacing: 2px;
     line-height: 2em;
     color: #fff;
+}
+.btn-primary{
     background-color: #08c;
 }
 .btn-primary:hover{
     color: #fff;
     background-color: #05c;
+}
+.btn-green{
+    background-color: #80bd01;
+}
+.btn-green:hover{
+    background-color: #6ba44e;
+}
+.btn-gray{
+    background-color: #e5e5e5;
+    color: #000;
+}
+.btn-gray:hover{
+    color: #fff;
+    background-color: #909090;
 }
 /*alert*/
 .alert{

@@ -16,9 +16,8 @@ class LoginFormBox extends React.Component{
                 res.json().then(function(obj){
                     if(obj.success){
                         let loginname=obj.loginname;
-                        console.log(loginname);
-                        console.dir(hashHistory);
-                        console.dir(browserHistory);
+                        // console.dir(hashHistory);
+                        // console.dir(browserHistory);
                         CookieUtil.setCookie('loginname',loginname,1);
                         CookieUtil.setCookie('tokenID',tokenID,1);
                         console.log(CookieUtil.getCookies());

@@ -4,6 +4,8 @@ class DetailContent extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
+            collectBtn:props.collectBtn,
+            is_collect:props.is_collect
         }
     }
     componentWillMount(){
@@ -15,8 +17,12 @@ class DetailContent extends React.Component{
         let data=this.props.data;
         artBody.innerHTML=data.content;
     }
+
     render(){
         var style="topic-type",tab;
+        let props=this.props,
+        state=this.state,
+        self=this;
         let data=this.props.data;
         let visitCount=data.visit_count,
         username=data.author.loginname,
@@ -40,12 +46,13 @@ class DetailContent extends React.Component{
             let reply=replies[i],
             likes=reply.ups.length,
             replyBtnWrap;
-
-            if(likes>0){
-                replyBtnWrap= <div className="reply-btn-wrap"><i className="icon-like" /> <span className="like-count">{likes}</span> <i className="icon-reply" style={{display:'none'}} /></div>;
-            }else{
-                replyBtnWrap= <div className="reply-btn-wrap"> <i className="icon-reply" style={{display:'none'}} /></div>;
-            }
+            //点赞按钮及回复按钮
+            replyBtnWrap= (
+                <div className="reply-btn-wrap">
+                    <i className="icon-like" onClick={ (e)=>{props.handleUps(e,reply.id)} } /> <span className="like-count">{likes}</span>
+                    <i className="icon-reply" style={{display:'none'}} />
+                </div>
+            );
             replyDataList.push(
                 <li className="reply-list-item line-top" key={i}>
                     {replyBtnWrap}
@@ -70,6 +77,24 @@ class DetailContent extends React.Component{
                     <span className="art-author">作者 <a href>{username}</a></span>
                     <span className="art-visits">{visitCount} 次浏览</span>
                     <span className="from">来自 分享</span>
+                    {
+                        (function(){
+                            //是否显示
+                            if(state.collectBtn){
+                                //用户收藏
+                                if(props.is_collect){
+                                    return (
+                                        <button className="btn-gray f-fr" type="button" onClick={props.handleUnCollect}>已收藏</button>
+                                    );
+                                }else{
+                                    return (
+                                        <button className="btn-green f-fr" type="submit" onClick={(e)=>{props.handleCollect(e)}}>收藏</button>
+                                    );
+                                }
+                            }
+                        })()
+                    }
+
                   </div>
                 </div>
                 <div className="art-body line-top" ref="artBody" >
