@@ -108,6 +108,7 @@
 }
 .reply-btn-wrap .icon-reply{
     display: inline-block;
+    margin-left: 6px;
     width: 16px;
     height: 16px;
     cursor: pointer;

@@ -45,14 +45,17 @@ class DetailContent extends React.Component{
         for(let i=0,len=replies.length;i<len;i++){
             let reply=replies[i],
             likes=reply.ups.length,
-            replyBtnWrap;
+            replyBtnWrap,
+            //是否显示回复按钮
+            isShowRplyBtn=state.collectBtn===true ? {display:'inline-block'} : {display:'none'};
             //点赞按钮及回复按钮
             replyBtnWrap= (
                 <div className="reply-btn-wrap">
                     <i className="icon-like" onClick={ (e)=>{props.handleUps(e,reply.id)} } /> <span className="like-count">{likes}</span>
-                    <i className="icon-reply" style={{display:'none'}} />
+                    <i className="icon-reply" style={isShowRplyBtn} />
                 </div>
             );
+            //这里最好应该继续提取一个组件出来
             replyDataList.push(
                 <li className="reply-list-item line-top" key={i}>
                     {replyBtnWrap}
@@ -63,7 +66,12 @@ class DetailContent extends React.Component{
                   </div>
                   <div className="reply-content" dangerouslySetInnerHTML={{__html: reply.content}}>
                   </div>
-                  
+                  <div  id={"reply_of_reply_"+i} className="reply-of-reply-wrap" style={{display: 'block'}}>
+                    <form className="sidebox-form clearfix">
+                      <div className="form-cell"><textarea name="name" defaultValue={""} /></div>
+                      <div className="form-cell f-fr"> <button className="btn-primary" type="submit">回复</button> </div>
+                    </form>
+                  </div>
                 </li>
             )
         }

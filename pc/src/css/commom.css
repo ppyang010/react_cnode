@@ -166,6 +166,17 @@ body{
 .sidebox-form .form-cell{
     margin-bottom: 15px;
 }
+.sidebox-form .form-cell{
+    margin: 10px 0 0 30px;
+}
+.sidebox-form .form-cell textarea{
+    padding: 0 2px;
+    width: 100%;
+    height: 100px;
+    font-size: 15px;
+    resize:vertical;
+    box-sizing: border-box;
+}
 /*sidebar end*/
 
 
@@ -235,6 +246,9 @@ body{
 }
 .f-fz-14{
     font-size: 14px;
+}
+.t-center{
+    text-align: center;
 }
 strong{
     font-weight: 700;

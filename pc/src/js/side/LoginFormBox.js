@@ -20,6 +20,7 @@ class LoginFormBox extends React.Component{
                         // console.dir(browserHistory);
                         CookieUtil.setCookie('loginname',loginname,1);
                         CookieUtil.setCookie('tokenID',tokenID,1);
+                        CookieUtil.setCookie('userID',obj.id,1);
                         console.log(CookieUtil.getCookies());
                         const path='/index';
                         hashHistory.push(path);

@@ -251,7 +251,7 @@
 	    }, {
 	        key: 'componentDidUpdate',
 	        value: function componentDidUpdate() {
-	            console.log('DidUpdate');
+	            console.log('componentDidUpdate');
 	        }
 	    }, {
 	        key: 'render',
@@ -10384,6 +10384,7 @@
 	                            // console.dir(browserHistory);
 	                            _CookieUtil.CookieUtil.setCookie('loginname', loginname, 1);
 	                            _CookieUtil.CookieUtil.setCookie('tokenID', tokenID, 1);
+	                            _CookieUtil.CookieUtil.setCookie('userID', obj.id, 1);
 	                            console.log(_CookieUtil.CookieUtil.getCookies());
 	                            var path = '/index';
 	                            _reactRouter.hashHistory.push(path);
@@ -10791,7 +10792,10 @@
 	            var _loop = function _loop(i, len) {
 	                var reply = replies[i],
 	                    likes = reply.ups.length,
-	                    replyBtnWrap = void 0;
+	                    replyBtnWrap = void 0,
+
+	                //是否显示回复按钮
+	                isShowRplyBtn = state.collectBtn === true ? { display: 'inline-block' } : { display: 'none' };
 	                //点赞按钮及回复按钮
 	                replyBtnWrap = React.createElement(
 	                    'div',
@@ -10805,8 +10809,9 @@
 	                        { className: 'like-count' },
 	                        likes
 	                    ),
-	                    React.createElement('i', { className: 'icon-reply', style: { display: 'none' } })
+	                    React.createElement('i', { className: 'icon-reply', style: isShowRplyBtn })
 	                );
+	                //这里最好应该继续提取一个组件出来
 	                replyDataList.push(React.createElement(
 	                    'li',
 	                    { className: 'reply-list-item line-top', key: i },
@@ -10827,7 +10832,31 @@
 	                            '\u697C\u20224 \u5929\u524D'
 	                        )
 	                    ),
-	                    React.createElement('div', { className: 'reply-content', dangerouslySetInnerHTML: { __html: reply.content } })
+	                    React.createElement('div', { className: 'reply-content', dangerouslySetInnerHTML: { __html: reply.content } }),
+	                    React.createElement(
+	                        'div',
+	                        { id: "reply_of_reply_" + i, className: 'reply-of-reply-wrap', style: { display: 'block' } },
+	                        React.createElement(
+	                            'form',
+	                            { className: 'sidebox-form clearfix' },
+	                            React.createElement(
+	                                'div',
+	                                { className: 'form-cell' },
+	                                React.createElement('textarea', { name: 'name', defaultValue: "" })
+	                            ),
+	                            React.createElement(
+	                                'div',
+	                                { className: 'form-cell f-fr' },
+	                                ' ',
+	                                React.createElement(
+	                                    'button',
+	                                    { className: 'btn-primary', type: 'submit' },
+	                                    '\u56DE\u590D'
+	                                ),
+	                                ' '
+	                            )
+	                        )
+	                    )
 	                ));
 	            };
 
