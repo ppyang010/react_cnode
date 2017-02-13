@@ -63,6 +63,7 @@ class DetailContent extends React.Component{
                   </div>
                   <div className="reply-content" dangerouslySetInnerHTML={{__html: reply.content}}>
                   </div>
+                  
                 </li>
             )
         }
