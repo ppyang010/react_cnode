@@ -4,6 +4,7 @@ var IndexApp=require('./IndexApp.js');
 import { DetailApp } from './detail/DetailApp.js';
 import { UserApp } from './user/UserApp.js';
 import { LoginApp } from './login/LoginApp.js';
+import { MsgApp } from './msg/MsgApp.js';
 import { Router, Route, hashHistory,browserHistory } from 'react-router';
 
 
@@ -14,5 +15,6 @@ var main=ReactDOM.render((
         <Route path="/topic(/:topicID)" component={DetailApp}/>
         <Route path="/user(/:loginname)" component={UserApp}/>
         <Route path="/login" component={LoginApp}/>
+        <Route path="/messages" component={MsgApp}/>
     </Router>
 ) ,document.getElementById('app'));
