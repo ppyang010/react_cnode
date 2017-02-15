@@ -149,13 +149,68 @@ class DetailApp extends React.Component{
         }
     }
     //回复评论
+    // _submitReplyDate(topicID,reply_content,reply_id){
+    //     var cookie=CookieUtil.getCookies();
+    //     return fetch(`https://cnodejs.org/api/v1/topic/${topicID}/replies`,{
+    //         method:"post",
+    //         headers: {
+    //          "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+    //         },
+    //         body:`accesstoken=${cookie['tokenID']}&content=${reply_content}&reply_id=${reply_id}`,
+    //     })
+    //
+    // }
+    //回复评论
     //该方法在调用时绑定了this为 DetailContent 的实例
-    handleReply(e){
-        console.log(this.refs['reply_id'].value);
-        console.dir(this.refs['reply_content']);
-        console.log(this.refs['reply_loginname'].value);
-        console.dir(this);
-        // console.log(this.reply.author.loginname);
+    handleReply(e,i){
+        // console.log(this.refs['reply_id_'+i].value);
+        // console.dir(this.refs['reply_content_'+i].value);
+        // console.log(this.refs['topicID'].value);
+        if(i){
+            var topicID=this.refs['topicID'].value,
+            reply_id=this.refs['reply_id_'+i].value,
+            reply_content=this.refs['reply_content_'+i].value,
+            reply_loginname=this.refs['reply_loginname_'+i].value;
+            reply_content="@"+reply_loginname+" "+reply_content;
+        }else{
+            var topicID=this.refs['topicID'].value,
+            reply_content=this.refs['reply_content'].value,
+            reply_id=null;
+        }
+
+        var result=(function(topicID,reply_content,reply_id){
+            var cookie=CookieUtil.getCookies();
+            if(reply_id){
+                var body=`accesstoken=${cookie['tokenID']}&content=${reply_content}&reply_id=${reply_id}`;
+            }else{
+                var body=`accesstoken=${cookie['tokenID']}&content=${reply_content}`;
+            }
+
+            return fetch(`https://cnodejs.org/api/v1/topic/${topicID}/replies`,{
+                method:"post",
+                headers: {
+                 "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+                },
+                body:body,
+            })
+        })(topicID,reply_content,reply_id);
+        // console.dir(result);
+        // console.log(1);
+        result.then(function(res){
+            // console.dir(res);
+            //  console.log(3);
+            if (res.ok) {
+                res.json().then(function(obj) {
+                    if(obj.success){
+                        alert("回复成功");
+                        window.location.reload();
+                    }else{
+                        alert("回复成功失败");
+                    }
+                })
+            }
+        })
+        // console.log(2);
         e.preventDefault();
     }
 

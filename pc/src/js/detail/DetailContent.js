@@ -5,7 +5,8 @@ class DetailContent extends React.Component{
         super(props);
         this.state = {
             collectBtn:props.collectBtn,
-            is_collect:props.is_collect
+            is_collect:props.is_collect,
+            replies:{}
         }
         this.handleShowReplyBox=(event,i)=>{
             // console.log(event);
@@ -22,6 +23,14 @@ class DetailContent extends React.Component{
         var artBody=self.refs['artBody'];
         let data=this.props.data;
         artBody.innerHTML=data.content;
+    }
+
+    handleReplyValue(e,id){
+        var replies=this.state.replies;
+        replies[id+'']=e.target.value;
+        this.setState({
+            replies:replies
+        })
     }
 
     render(){
@@ -74,10 +83,12 @@ class DetailContent extends React.Component{
                   <div className="reply-content" dangerouslySetInnerHTML={{__html: reply.content}}>
                   </div>
                   <div  id={"reply_of_reply_"+i} className="reply-of-reply-wrap" style={{display: 'none'}}>
-                    <form className="sidebox-form clearfix" onSubmit={props.handleReply.bind(this)}>
-                        <input type="hidden" defaultValue={reply.id} name="reply_id" ref="reply_id" ></input>
-                        <input type="hidden" defaultValue={reply.author.loginname} name="reply_loginname" ref="reply_loginname" ></input>
-                        <div className="form-cell"><textarea name="name"   ref="reply_content"/></div>
+                    <form className="sidebox-form clearfix" onSubmit={(e)=>{props.handleReply.bind(this,e,i)()}}>
+                        <input type="hidden" defaultValue={reply.id} name="reply_id" ref={"reply_id_"+i} ></input>
+                        <input type="hidden" defaultValue={data.id}  ref={"topicID"} ></input>
+                        <input type="hidden" defaultValue={reply.author.loginname} name="reply_loginname" ref={"reply_loginname_"+i} ></input>
+                        {/*<div className="form-cell"><textarea name="name" value={(this.state.replies[i] ? this.state.replies[i] :'')}  onChange={(e)=>{this.handleReplyValue(e,i)}} ref="reply_content"/></div>*/}
+                        <div className="form-cell"><textarea name="name" defaultValue={''} ref={"reply_content_"+i}/></div>
                         <div className="form-cell f-fr"> <button className="btn-primary" type="submit">回复</button> </div>
                         <div className="form-cell f-fr"> <button className="btn-gray" type="button" onClick={ (e)=>{this.handleShowReplyBox(e,i)} } >取消</button> </div>
                     </form>
@@ -137,9 +148,10 @@ class DetailContent extends React.Component{
                 <div className="sidebox-body">
                   <div className="sidebox-body-wrap">
                     <div className="reply-of-reply-wrap" style={{display: 'block'}}>
-                      <form className="sidebox-form clearfix">
-                        <div className="form-cell"><textarea name="name" defaultValue={""} /></div>
-                        <div className="form-cell f-fr"> <button className="btn-primary" type="submit">回复</button> </div>
+                      <form className="sidebox-form clearfix" onSubmit={(e)=>{props.handleReply.bind(this,e)()}}>
+                          <input type="hidden" defaultValue={data.id}  ref={"topicID"} ></input>
+                          <div className="form-cell"><textarea name="name"  ref="reply_content"/></div>
+                          <div className="form-cell f-fr"> <button className="btn-primary" type="submit">回复</button> </div>
                       </form>
                     </div>
                   </div>
