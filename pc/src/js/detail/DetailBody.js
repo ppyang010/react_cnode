@@ -63,7 +63,7 @@ class DetailBody extends  React.Component{
                 </div>
 
                 <DetailContent data={props.data} collectBtn={props.collectBtn} is_collect={props.is_collect} handleCollect={props.handleCollect}
-                handleUnCollect={props.handleUnCollect} handleUps={props.handleUps}/>
+                handleUnCollect={props.handleUnCollect} handleUps={props.handleUps} handleReply={props.handleReply} />
             </main>
         )
     }

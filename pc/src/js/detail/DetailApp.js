@@ -96,6 +96,8 @@ class DetailApp extends React.Component{
                 }
             })
         }
+
+
     }
     componentWillMount(){
         console.log("componmentWillMount");
@@ -132,7 +134,9 @@ class DetailApp extends React.Component{
             }
         });
     }
-
+    componentDidUpdate(){
+        console.log('componentDidUpdate');
+    }
     _fetchDate(id){
         if(this.state.loginUserInfo.loginUserState){
             return fetch('https://cnodejs.org/api/v1/topic/'+id+'?accesstoken='+this.state.loginUserInfo.userToken,{
@@ -144,9 +148,17 @@ class DetailApp extends React.Component{
             })
         }
     }
-    componentDidUpdate(){
-        console.log('componentDidUpdate');
+    //回复评论
+    //该方法在调用时绑定了this为 DetailContent 的实例
+    handleReply(e){
+        console.log(this.refs['reply_id'].value);
+        console.dir(this.refs['reply_content']);
+        console.log(this.refs['reply_loginname'].value);
+        console.dir(this);
+        // console.log(this.reply.author.loginname);
+        e.preventDefault();
     }
+
     render(){
         // console.log('render');
         var props=this.props;
@@ -161,7 +173,7 @@ class DetailApp extends React.Component{
                 collectBtn=false;//收藏按钮不显示
             }
             var body=<DetailBody data={state.data} collectBtn={collectBtn} is_collect={state.is_collect} handleCollect={this.handleCollect}
-            handleUnCollect={this.handleUnCollect} handleUps={this.handleUps} />
+            handleUnCollect={this.handleUnCollect} handleUps={this.handleUps}  handleReply={this.handleReply}/>
         }
         return (
             <div>

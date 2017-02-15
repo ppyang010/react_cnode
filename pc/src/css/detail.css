@@ -55,6 +55,7 @@
 /*回复*/
 .reply-wrap{
     margin-top: 15px;
+    margin-bottom: 15px;
 }
 .reply-wrap .reply-head{
     padding:10px;

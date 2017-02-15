@@ -7,6 +7,12 @@ class DetailContent extends React.Component{
             collectBtn:props.collectBtn,
             is_collect:props.is_collect
         }
+        this.handleShowReplyBox=(event,i)=>{
+            // console.log(event);
+            event.persist();
+            var replyBox =document.getElementById('reply_of_reply_'+i);
+            replyBox.style.display= ( replyBox.style.display == "none" ) ? "block":"none";
+        }
     }
     componentWillMount(){
 
@@ -52,9 +58,10 @@ class DetailContent extends React.Component{
             replyBtnWrap= (
                 <div className="reply-btn-wrap">
                     <i className="icon-like" onClick={ (e)=>{props.handleUps(e,reply.id)} } /> <span className="like-count">{likes}</span>
-                    <i className="icon-reply" style={isShowRplyBtn} />
+                    <i className="icon-reply" style={isShowRplyBtn} onClick={ (e)=>{this.handleShowReplyBox(e,i)} } />
                 </div>
             );
+            //TODO
             //这里最好应该继续提取一个组件出来
             replyDataList.push(
                 <li className="reply-list-item line-top" key={i}>
@@ -66,10 +73,13 @@ class DetailContent extends React.Component{
                   </div>
                   <div className="reply-content" dangerouslySetInnerHTML={{__html: reply.content}}>
                   </div>
-                  <div  id={"reply_of_reply_"+i} className="reply-of-reply-wrap" style={{display: 'block'}}>
-                    <form className="sidebox-form clearfix">
-                      <div className="form-cell"><textarea name="name" defaultValue={""} /></div>
-                      <div className="form-cell f-fr"> <button className="btn-primary" type="submit">回复</button> </div>
+                  <div  id={"reply_of_reply_"+i} className="reply-of-reply-wrap" style={{display: 'none'}}>
+                    <form className="sidebox-form clearfix" onSubmit={props.handleReply.bind(this)}>
+                        <input type="hidden" defaultValue={reply.id} name="reply_id" ref="reply_id" ></input>
+                        <input type="hidden" defaultValue={reply.author.loginname} name="reply_loginname" ref="reply_loginname" ></input>
+                        <div className="form-cell"><textarea name="name"   ref="reply_content"/></div>
+                        <div className="form-cell f-fr"> <button className="btn-primary" type="submit">回复</button> </div>
+                        <div className="form-cell f-fr"> <button className="btn-gray" type="button" onClick={ (e)=>{this.handleShowReplyBox(e,i)} } >取消</button> </div>
                     </form>
                   </div>
                 </li>
@@ -121,6 +131,21 @@ class DetailContent extends React.Component{
                   </ul>
                 </div>
               </div>
+
+              <div className="sidebox">
+                <div className="sidebox-head"><span>新建回复</span></div>
+                <div className="sidebox-body">
+                  <div className="sidebox-body-wrap">
+                    <div className="reply-of-reply-wrap" style={{display: 'block'}}>
+                      <form className="sidebox-form clearfix">
+                        <div className="form-cell"><textarea name="name" defaultValue={""} /></div>
+                        <div className="form-cell f-fr"> <button className="btn-primary" type="submit">回复</button> </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
         )
     }
