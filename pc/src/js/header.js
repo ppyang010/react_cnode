@@ -32,12 +32,16 @@ class Header extends React.Component{
             loginUserInfo:loginUserInfo
         });
     }
+    _fetchMsgNum(){
+        
+    }
     render(){
         var loginUserInfo=this.state.loginUserInfo,
-        registLink,loginLink;
+        registLink,loginLink,msglink;
 
         if(loginUserInfo.loginUserState){
-            registLink=( <li className="nav-item"><Link className="nav-item-a" to={'/user/'+loginUserInfo.username} >{loginUserInfo.username}</Link></li>)
+            msglink=(<li className="nav-item"><Link className="nav-item-a" to={'/messages'} >未读消息</Link></li>);
+            registLink=( <li className="nav-item"><Link className="nav-item-a" to={'/user/'+loginUserInfo.username} >{loginUserInfo.username}</Link></li>);
             loginLink=(<li className="nav-item"><a className="nav-item-a"  href="javascript: void(0)" onClick={this.handleLoginout.bind(this)} >退出</a></li>);
         }else{
             registLink=( <li className="nav-item"><a className="nav-item-a" href="javascript: void(0)">注册</a></li>);
@@ -54,6 +58,7 @@ class Header extends React.Component{
                     </form>
                     <ul className="nav f-fr">
                       <li className="nav-item"><IndexLink className="nav-item-a"  to="/">首页</IndexLink></li>
+                      {msglink}
                       <li className="nav-item"><a className="nav-item-a" href="https://cnodejs.org/api" target="_blank">API</a></li>
                       <li className="nav-item"><a className="nav-item-a" href="javascript: void(0)">关于</a></li>
                       {registLink}

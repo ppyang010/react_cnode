@@ -119,6 +119,10 @@ body{
 .sidebox-body .sidebox-content-list-item .link{
     color:#778087;
 }
+.sidebox-body .sidebox-content-list-item .msg-item{
+    font-size: 16px;
+}
+
 
 .sidebox-body .txt-p{
     margin-bottom: 10px;

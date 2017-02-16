@@ -9,6 +9,7 @@
 var React=require('react');
 import {AuthorBox} from './AuthorBox.js';
 import {LoginFormBox} from './LoginFormBox.js';
+import {MsgListBox} from './MsgListBox.js';
 // import {TopicList} from '../TopicList.js';
 var TopicList=require('../TopicList.js');
 class Sidebox extends React.Component{
@@ -19,11 +20,14 @@ class Sidebox extends React.Component{
         switch (type){
             case 'author':
             let loginname=props.loginname;
-            bodyBox=<AuthorBox authorBoxData={props.authorBoxData} />;break;
+            bodyBox=<AuthorBox authorBoxData={props.authorBoxData} isShowWriteBtn={props.isShowWriteBtn && true}/>;break;
             case 'list':
             bodyBox=<TopicList dataList={props.boxData} />;break;
             case 'login':
             bodyBox=<LoginFormBox/>;break;
+            case 'newMsg':
+            case 'oldMsg':
+            bodyBox=<MsgListBox msgList={props.boxData} />;break;
             default:
             break;
         }

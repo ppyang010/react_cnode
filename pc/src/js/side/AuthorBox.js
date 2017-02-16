@@ -60,12 +60,23 @@ class AuthorBox extends React.Component{
         let props=this.props,
         data=props.authorBoxData,
         userInfo;
+        console.log('isShowWriteBtn='+props.isShowWriteBtn);
         if(!!data.loginname){
             userInfo=(
                     <div className="user-info">
                       <img className="user-big-lg" src={data.avatar_url} alt="图片" />
                       <Link className="user-name link-d" to={'/user/'+data.loginname}>{data.loginname}</Link>
                       <p className="txt-p">积分：{data.score}</p>
+                      {
+                          (function(){
+                              if(props.isShowWriteBtn){
+                                  return (<button className="btn-primary" type="submit">发布话题</button>);
+                              }else{
+                                  return ;
+                              }
+                          })()
+                      }
+
                     </div>
             );
         }
