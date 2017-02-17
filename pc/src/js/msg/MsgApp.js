@@ -5,6 +5,7 @@ var Header=require('../Header.js');
 var Footer=require('../Footer.js');
 import {CookieUtil} from '../util/CookieUtil.js';
 import {MsgBody} from './MsgBody.js';
+import {Link,browserHistory,hashHistory } from 'react-router';
 class MsgApp extends React.Component {
     constructor(props) {
         super(props);
@@ -47,6 +48,7 @@ class MsgApp extends React.Component {
             // );
 
             alert('请先登陆！！然后跳转主页');
+            hashHistory.push("/");
         }
         return (
             <div>

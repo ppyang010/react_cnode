@@ -11769,6 +11769,8 @@
 
 	var _MsgBody = __webpack_require__(107);
 
+	var _reactRouter = __webpack_require__(6);
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -11830,7 +11832,8 @@
 	                //     </div>
 	                // );
 
-	                alert(请先);
+	                alert('请先登陆！！然后跳转主页');
+	                _reactRouter.hashHistory.push("/");
 	            }
 	            return React.createElement(
 	                'div',
