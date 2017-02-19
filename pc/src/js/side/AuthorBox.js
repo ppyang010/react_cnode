@@ -60,7 +60,7 @@ class AuthorBox extends React.Component{
         let props=this.props,
         data=props.authorBoxData,
         userInfo;
-        console.log('isShowWriteBtn='+props.isShowWriteBtn);
+        // console.log('isShowWriteBtn='+props.isShowWriteBtn);
         if(!!data.loginname){
             userInfo=(
                     <div className="user-info">
@@ -70,7 +70,7 @@ class AuthorBox extends React.Component{
                       {
                           (function(){
                               if(props.isShowWriteBtn){
-                                  return (<button className="btn-primary" type="submit">发布话题</button>);
+                                  return (<Link className="btn-primary" to={"/release"}>发布话题</Link>);
                               }else{
                                   return ;
                               }
@@ -88,7 +88,7 @@ class AuthorBox extends React.Component{
     }
 }
 AuthorBox.defaultProps={
-    name:'111'
+    isShowWriteBtn:false
 }
 export {AuthorBox};
 export default AuthorBox;

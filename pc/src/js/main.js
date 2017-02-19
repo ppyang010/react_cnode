@@ -5,6 +5,7 @@ import { DetailApp } from './detail/DetailApp.js';
 import { UserApp } from './user/UserApp.js';
 import { LoginApp } from './login/LoginApp.js';
 import { MsgApp } from './msg/MsgApp.js';
+import { ReleaseApp } from './release/ReleaseApp.js';
 import { Router, Route, hashHistory,browserHistory } from 'react-router';
 
 
@@ -16,5 +17,6 @@ var main=ReactDOM.render((
         <Route path="/user(/:loginname)" component={UserApp}/>
         <Route path="/login" component={LoginApp}/>
         <Route path="/messages" component={MsgApp}/>
+        <Route path="/release" component={ReleaseApp}/>
     </Router>
 ) ,document.getElementById('app'));

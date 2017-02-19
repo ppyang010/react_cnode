@@ -254,6 +254,9 @@ body{
 .t-center{
     text-align: center;
 }
+.t-left{
+    text-align: left;
+}
 strong{
     font-weight: 700;
 }
