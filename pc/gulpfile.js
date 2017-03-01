@@ -33,8 +33,8 @@ gulp.task('css_comp', function() {
     .pipe(cached('css'))
     .pipe(gulp.dest('./src/css/**/*.css')) // 把管道里的所有文件输出到 dist/css 目录
     .pipe(filter(['**/*', '!**/*.min.css'])) // 筛选出管道中的非 *.min.css 文件
-    // .pipe(autoprefixer('last 6 version'))
-    // .pipe(gulp.dest('./dist/css')) // 把处理过的 css 输出到 dist/css 目录
+    .pipe(autoprefixer('last 6 version'))
+    .pipe(gulp.dest('./dist/css')) // 把处理过的 css 输出到 dist/css 目录
     .pipe(rename({suffix: '.min'}))
     .pipe(cssnano())
     .pipe(gulp.dest('./dist'))
@@ -54,7 +54,7 @@ gulp.task('js_comp', function() {
     .pipe(uglify())
     .pipe(gulp.dest('./dist/js'))
 });
- 
+
 
 //开启一个服务器 并实时刷新
 //live reload
