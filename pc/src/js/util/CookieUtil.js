@@ -4,7 +4,7 @@ var CookieUtil={
       var cookie={};
       var all=document.cookie;//获取的为一个字符串
       if(all === ""){
-        return;
+        return cookie;
       }
       var list =all.split(';');
       for(var i=0,len=list.length;i<len;i++){

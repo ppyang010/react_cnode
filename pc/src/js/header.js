@@ -4,7 +4,7 @@ import {CookieUtil} from './util/CookieUtil.js';
 class Header extends React.Component{
     constructor(props){
         super(props);
-        var cookie=CookieUtil.getCookies();
+        var cookie=CookieUtil.getCookies()||{};
         var loginUserInfo={
             loginUserState:false,
         }
@@ -33,7 +33,7 @@ class Header extends React.Component{
         });
     }
     _fetchMsgNum(){
-        
+
     }
     render(){
         var loginUserInfo=this.state.loginUserInfo,
